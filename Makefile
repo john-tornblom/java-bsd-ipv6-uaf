@@ -1,9 +1,6 @@
-all: libkernel.so c_exploit classes
+all: libkernel.so classes
 
 classes: KernelExploit.class NativeMemory.class libkernel.class
-
-c_exploit: exploit.c
-	clang -o $@ exploit.c -lpthread -lc
 
 libkernel.so: libkernel.c
 	cc -I/usr/local/openjdk8/include -I/usr/local/openjdk8/include/freebsd -shared -fPIC -o $@ libkernel.c
